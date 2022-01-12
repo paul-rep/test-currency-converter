@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkcurrency_converter=self.webpackChunkcurrency_converter||[]).push([[762],{762:function(e,r,n){n.r(r),n.d(r,{CurrencyRateList:function(){return i}});n(2791);var c=n(493),t=n(4852),s=n(9900),u=n(184),i=function(e){var r=e.rates;return(0,u.jsx)(c.Z,{children:Object.keys(r).length>0&&Object.entries(r).map((function(e){return(0,u.jsxs)(t.ZP,{children:[(0,u.jsx)(s.Z,{children:e[0]}),(0,u.jsx)(s.Z,{children:e[1]})]},e[0])}))})}}}]);
+//# sourceMappingURL=762.d74b0bfa.chunk.js.map
