@@ -8,8 +8,7 @@ const CurrencyRateList = lazy(() => import('../components/CurrencyRateList').the
 const BASE_URL = `http://api.exchangeratesapi.io/latest?access_key=${process.env.REACT_APP_ACCESS_KEY}`;
 
 export const ExchangeRates = () => {
-    const base_currency = useSelector((state)=> state.base_currency.base_currency);
-    // const rates = useSelector((state)=> state.base_currency.rates);
+    const base_currency = useSelector((state)=> state.currency.base_currency);
     const [symbols, setSymbols] = useState([]);
     const [rates, setRates] = useState({});
 

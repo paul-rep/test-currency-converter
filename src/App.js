@@ -13,8 +13,8 @@ const App = () => {
         <Navbar></Navbar>
       </Suspense>
       <Routes>
-        <Route path="/" element={<Converter />} />
-        <Route path="exchange-rates" element={<ExchangeRates />} />
+        <Route path="/" exact element={<Converter />} />
+        <Route path="exchange-rates" exact element={<ExchangeRates />} />
       </Routes>
     </Box>
   );
