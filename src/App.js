@@ -1,6 +1,6 @@
-import React, { useEffect, useState, lazy, Suspense} from 'react';
+import React, { lazy, Suspense} from 'react';
 import './App.css';
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Converter from './pages/Converter';
 import { ExchangeRates } from './pages/ExchangeRates';
 import Box from '@mui/material/Box';

@@ -4,8 +4,10 @@ import {useSelector, useDispatch} from 'react-redux';
 import axios from 'axios';
 import SwapHorizIcon from '@mui/icons-material/SwapHoriz';
 
-import Modal from '../components/Modal';
+
 const CurrencyRow = lazy(() => import('../components/CurrencyRow'));
+const Modal = lazy(() => import('../components/Modal'));
+
 const BASE_URL = `https://api.exchangeratesapi.io/latest?access_key=4f6a585346d0ad7a0dfe4d2f0a05b1c2`;
 
 
@@ -31,16 +33,22 @@ const Converter = () => {
     fromAmount = amount / exchangeRate
   }
 
+  const fetchCurrencies = async () => {
+    try {
+        const res = await axios.get(`${BASE_URL}&base=${base_currency}`);
+        if (res && res.data && res.data.rates){
+          const firstCurrency = Object.keys(res.data.rates)[0];
+          setCurrencyOptions([res.data.base, ...Object.keys(res.data.rates)]);
+          setFromCurrency(res.data.base);
+          setToCurrency(firstCurrency);
+          setExchangeRate(res.data.rates[firstCurrency]);
+        }
+    } catch(e){
+        console.log(e);
+    }
+  }
   useEffect(() => {
-    fetch(`${BASE_URL}&base=${base_currency}`)
-      .then(res => res.json())
-      .then(data => {
-        const firstCurrency = Object.keys(data.rates)[0];
-        setCurrencyOptions([data.base, ...Object.keys(data.rates)]);
-        setFromCurrency(data.base);
-        setToCurrency(firstCurrency);
-        setExchangeRate(data.rates[firstCurrency]);
-      }).catch((e)=>console.log(e));
+    fetchCurrencies();
   }, [])
 
   const fetchRates = async () => {
@@ -87,10 +95,11 @@ const Converter = () => {
 
   return (
     <div>
-      <h3>Choose prefered currency</h3>
+      <h3>Choose preferred currency</h3>
       {!is_currency_chosen && currencyOptions.length > 0 &&
-      
-        <Modal items={currencyOptions} onSelectCurrency={onSelectCurrency}></Modal> 
+         <Suspense fallback={<p>Loading…</p>}>
+          <Modal items={currencyOptions} onSelectCurrency={onSelectCurrency}></Modal>
+        </Suspense>
       }
       <Suspense fallback={<p>Loading…</p>}>
         <CurrencyRow key={2}
