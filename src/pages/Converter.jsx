@@ -40,7 +40,7 @@ const Converter = () => {
         setFromCurrency(data.base);
         setToCurrency(firstCurrency);
         setExchangeRate(data.rates[firstCurrency]);
-      })
+      }).catch((e)=>console.log(e));
   }, [])
 
   const fetchRates = async () => {
