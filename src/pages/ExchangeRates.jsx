@@ -5,7 +5,7 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 const CurrencyRateList = lazy(() => import('../components/CurrencyRateList').then(module =>({default: module.CurrencyRateList})))
 
-const BASE_URL = `http://api.exchangeratesapi.io/latest?access_key=${process.env.REACT_APP_ACCESS_KEY}`;
+const BASE_URL = `http://api.exchangeratesapi.io/latest?access_key=4f6a585346d0ad7a0dfe4d2f0a05b1c2`;
 
 export const ExchangeRates = () => {
     const base_currency = useSelector((state)=> state.currency.base_currency);
