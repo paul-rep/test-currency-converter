@@ -6,7 +6,7 @@ import SwapHorizIcon from '@mui/icons-material/SwapHoriz';
 
 import Modal from '../components/Modal';
 const CurrencyRow = lazy(() => import('../components/CurrencyRow'));
-const BASE_URL = `http://api.exchangeratesapi.io/latest?access_key=4f6a585346d0ad7a0dfe4d2f0a05b1c2`;
+const BASE_URL = `https://api.exchangeratesapi.io/latest?access_key=4f6a585346d0ad7a0dfe4d2f0a05b1c2`;
 
 
 const Converter = () => {
